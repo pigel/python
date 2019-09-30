@@ -24,3 +24,5 @@ just for examples
 
 curl -X POST "https://api.telegram.org/botXXX:YYYY/sendMessage" -d "chat_id=-zzzzzzzzzz&text=my sample text"
 Если вы пропустите шаг 2, обновления для группы вы не найдете. Кроме того, если есть несколько групп, вы можете искать имя группы в ответе ( "title": " имя_группы" ).
+
+doc = open(r'''C:\Intel\1.txt''', 'rb')
