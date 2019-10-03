@@ -1,0 +1,11 @@
+from bs4 import BeautifulSoup 
+
+def main():
+    html = open('page.html', encoding='utf8').read() # здесь page.html находится в папке с проектом. программа без декодинга не работает
+    soup = BeautifulSoup(html, 'lxml') # создание объекта супа
+    div = soup.find('div') # поиск тега в супе
+    print(div) 
+
+
+if __name__ == '__main__':
+    main()
