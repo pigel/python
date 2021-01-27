@@ -8,7 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 # Файл, полученный в Google Developer Console
 CREDENTIALS_FILE = 'creds.json'
 # ID Google Sheets документа (можно взять из его URL)
-spreadsheet_id = config.spreadsheet_id
+spreadsheet_id = 'lalala'
 
 # Авторизуемся и получаем service — экземпляр доступа к API
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
