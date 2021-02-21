@@ -1,13 +1,13 @@
 import os.path
 def createFile():
     try:
-        with open("pisulka.txt", "w") as file:  # создаем файл
+        with open("pisulka.txt", "w") as file:
             file.write("bau\n")
     except FileNotFoundError:
         print("Невозможно открыть файл")
 def addRec():
     try:
-        with open("pisulka.txt", "a") as file:  # дополняем
+        with open("pisulka.txt", "a") as file:
             file.write("bay\n")
     except FileNotFoundError:
         print("Невозможно открыть файл")
