@@ -1,0 +1,10 @@
+class Car:
+    def __init__(self, company, color):
+        self.company = company
+        self.color = color
+    def display(self):
+        print('This is a', self.color, self.company)
+car = Car('bmw', 'red')
+car2 = Car('audi', 'white')
+car.display()
+car2.display()
