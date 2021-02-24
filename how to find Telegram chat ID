@@ -15,3 +15,14 @@
 curl -X POST "https://api.telegram.org/botXXX:YYYY/sendMessage" -d "chat_id=-zzzzzzzzzz&text=my sample text" Если вы пропустите шаг 2, обновления для группы вы не найдете. Кроме того, если есть несколько групп, вы можете искать имя группы в ответе ( "title": " имя_группы" ).
 
 doc = open(r'''C:\Intel\1.txt''', 'rb')
+
+
+
+или (private)
+
+С ПОМОЩЬЮ АДРЕСНОЙ СТРОКИ.
+Создаем бота и пишем ему любое сообщение.
+В адресной строке браузера выполняем следующий запрос:
+https://api.telegram.org/bot342844119:AAHXaO-D-XoCD-ZCVPdu0IbE9apIdfuRIRxk/getUpdates,
+
+где 342844119:AAHXaO-D-XoCD-ZCVPdu0IbE9apIdfuRIRxk — Bot Token
