@@ -1,0 +1,15 @@
+from bs4 import BeautifulSoup
+from datetime import date
+
+print("Copyright (c) 2016 - %d | Dmitrii Voronchikhin " % date.today().year)
+
+address = ("C:\ya.html")
+
+def fromSoup():
+    html = open(address, encoding='UTF-8').read()
+    soup = BeautifulSoup(html, 'lxml') # создание объекта супа
+
+    for link in soup.find_all('a'): # нашли все 'a'
+        print(link.get('href'))     # следующие за ними 'href'
+
+fromSoup()
