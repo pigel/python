@@ -1,0 +1,7 @@
+body = '{message}\n' \
+           '--\n' \
+           '{first}, {last}\n' \
+           '{username}, {id}'.format(message=message.text, first=message.from_user.first_name,
+                                     last=message.from_user.last_name, username=message.from_user.username,
+                                     id=message.chat.id)
+    print(body)
