@@ -1,4 +1,8 @@
 import telebot
+from datetime import date
+
+print("Copyright (c) 2016 - %d | Dmitrii Voronchikhin " % date.today().year)
+
 BOT_TOKEN='<token>'
 bot = telebot.TeleBot(BOT_TOKEN)
 
