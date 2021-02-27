@@ -1,0 +1,7 @@
+import socket
+import requests
+
+address = ('http://192.168.0.1:80')
+res = requests.get(address)
+
+print(res)
