@@ -1,0 +1,17 @@
+import telebot
+
+token = 'lalala'
+bot = telebot.TeleBot(token)
+
+@bot.message_handler(content_types=["text"])
+def handle_text(message):
+    msg = bot.reply_to(message, 'recieved 1 ' + message.text)
+    print(message.text)
+
+    def next_step(message):
+        bot.reply_to(message, 'recieved 2 ' + message.text)
+        print(message.text)
+
+    bot.register_next_step_handler(msg, next_step)
+
+bot.polling()
