@@ -1,16 +1,15 @@
-import telebot
-
-token = 'lalala'
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(content_types=["text"])
 def handle_text(message):
-    msg = bot.reply_to(message, 'recieved 1 ' + message.text)
-    print(message.text)
+    msg = bot.send_message(message.chat.id, 'recieved name ' + message.text)
+    name = message.text
+    print(name)
 
     def next_step(message):
-        bot.reply_to(message, 'recieved 2 ' + message.text)
-        print(message.text)
+        bot.send_message(message.chat.id, 'recieved surname ' + message.text)
+        surname = message.text
+        print(surname)
 
     bot.register_next_step_handler(msg, next_step)
 
