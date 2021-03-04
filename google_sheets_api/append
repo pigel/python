@@ -1,0 +1,4 @@
+import gspread
+gc = gspread.service_account(filename='creds.json')
+wks = gc.open('test1').sheet1
+wks.append_row(['one', 'two'])
