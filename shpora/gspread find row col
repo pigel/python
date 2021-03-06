@@ -1,0 +1,3 @@
+c = worksheet.find("Account name")
+
+(row, col) = (c.row, c.col)
