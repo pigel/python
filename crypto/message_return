@@ -1,0 +1,11 @@
+from cryptography.fernet import Fernet
+import cryptography
+def load_key():
+    return open("key.key", "rb").read()
+try:
+    key = load_key()
+    f = Fernet(key)
+    decrypted_encrypted = f.decrypt(TOKEN)
+    print(decrypted_encrypted)
+except cryptography.fernet.InvalidToken:
+    print("Invalid key")
