@@ -1,0 +1,5 @@
+from Crypto.PublicKey import RSA
+
+key_file = open('key.pem','r')
+key = RSA.import_key(key_file.read())
+print(key.publickey().export_key())
