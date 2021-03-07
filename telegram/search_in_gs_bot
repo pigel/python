@@ -1,0 +1,26 @@
+import telebot
+import gspread
+# чтобы все содержимое работало в поиске, перевел его в ANCI через блокнот
+gc = gspread.service_account(filename='creds.json')
+sheet = gc.open("sheetstest").sheet1
+token = 'TOKEN'
+bot = telebot.TeleBot(token)
+@bot.message_handler(commands=['start'])
+def start_message(message):
+    bot.send_message(message.chat.id, 'введи номер СКЗИ или VIN код')
+@bot.message_handler(content_types=['text'])
+def poisk(message):
+    try:
+        c = sheet.find(message.text)
+        (row, col) = (c.row, c.col)
+        values_list = sheet.row_values(row)
+        date = values_list[0]
+        nkm = values_list[1]
+        org = values_list[2]
+        vin = values_list[3]
+        num = values_list[4]
+        bot.send_message(message.chat.id, 'Дата активации:    '+date+'\nНомер СКЗИ:    '+ nkm +'\nОрганизация:    '+ org + '\nВин код    ' +vin + '\nГосномер    '+num)
+    except:
+        gspread.exceptions.CellNotFound
+        bot.send_message(message.chat.id, 'не найдено')
+bot.polling()
