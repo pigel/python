@@ -1,0 +1,6 @@
+from Crypto.PublicKey import RSA
+key = RSA.generate(2048)
+with open("key.pem", "wb") as key_file: # create private key
+    key_file.write(key.export_key('PEM'))
+print(key.publickey().export_key())
+
