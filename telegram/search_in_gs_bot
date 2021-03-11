@@ -9,11 +9,23 @@ bot = telebot.TeleBot(config.TOKEN)
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
-    bot.send_message(message.chat.id, 'введи номер СКЗИ или VIN код')
+    bot.send_message(message.chat.id, 'пароль?')
+
+
+@bot.message_handler(content_types=['text'])
+def start_pass(message):
+    key = message.text
+    if key == config.password:
+        msg = bot.send_message(message.chat.id, 'пароль введен верно')
+        bot.send_message(message.chat.id, 'введи номер СКЗИ или VIN код')
+        bot.register_next_step_handler(msg, poisk)
+    else:
+        bot.send_message(message.chat.id, 'нет доступа')
 
 
 @bot.message_handler(content_types=['text'])
 def poisk(message):
+    msg = bot.send_message(message.chat.id, 'результат: ')
     try:
         c = sheet.find(message.text)
         (row, col) = (c.row, c.col)
@@ -31,6 +43,7 @@ def poisk(message):
             bot.send_message(message.chat.id, 'Дата активации:    ' + date + '\nНомер СКЗИ:    ' + nkm + '\nОрганизация:    ' + org + '\nВин код    ' + vin + '\nГосномер    ' + num)
     except:
         bot.send_message(message.chat.id, 'не найдено')
+    bot.register_next_step_handler(msg, poisk)
 
 
 bot.polling(none_stop=True)
