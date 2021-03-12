@@ -1,0 +1,3 @@
+@dp.message_handler(Text(equals="Убрать клаву"))
+async def def1(message: types.Message):
+    await message.answer("клава убрана", reply_markup=types.ReplyKeyboardRemove())
