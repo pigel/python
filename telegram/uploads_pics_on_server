@@ -1,0 +1,21 @@
+import telebot
+from config import TOKEN
+
+bot = telebot.TeleBot(TOKEN)
+
+
+@bot.message_handler(content_types=['audio', 'video', 'document', 'text', 'location', 'contact', 'sticker', 'photo'])
+def default_message(message):
+
+    # получили file_id
+    file_info = bot.get_file(message.photo[0].file_id)
+
+    downloaded_file = bot.download_file(file_info.file_path)
+
+    # сохраняем документ на сервере
+    # не забудьте создать каталог files, а внутри него photos
+    src = 'files/' + file_info.file_path
+    with open(src, 'wb') as new_file:
+        new_file.write(downloaded_file)
+
+bot.polling()
