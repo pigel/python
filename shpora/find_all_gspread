@@ -1,0 +1,6 @@
+answer_list = sheet.findall(message.text)
+        quantity = len(answer_list)
+        for pos in range(quantity):
+            row = answer_list[pos].row
+            values_list_row = sheet.row_values(row)
+            print(values_list_row)
