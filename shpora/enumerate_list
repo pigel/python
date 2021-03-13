@@ -1,0 +1,3 @@
+        for i, item in enumerate(l):
+            l[i] = int(item)
+            print(i
